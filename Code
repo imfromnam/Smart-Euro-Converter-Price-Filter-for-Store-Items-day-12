@@ -1,0 +1,31 @@
+print("🔥 DAY 12 PYTHON PROJECT")
+print("\n🛒 Smart Euro Converter & Price Filter for Store Items")
+print("\n")
+
+store = [
+    ("Milk", 19.00),
+    ("Meat", 45.77),
+    ("Hotdog", 15.00),
+    ("Icecream", 17.11),
+    ("Juice", 25.00),
+    ("Cheese", 22.50),
+    ("Water", 5.99)]
+
+
+to_euros = lambda data: (data[0], round(data[1] * 0.85, 2))
+store_euros = list(map(to_euros, store))
+
+
+min_price = float(input("💰 What’s the minimum price of items in Euros? "))
+
+price = lambda data: data[1] >= min_price
+
+filtered_euros = list(filter(price, store_euros))
+
+
+sorted_filtered = sorted(filtered_euros, key=lambda item: item[1])
+
+print ("\neverything over", min_price)
+print ("\n")
+for f in sorted_filtered:
+    print(f)
